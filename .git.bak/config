@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://pallavagarwal07:Pa%40100297@github.com/pallavagarwal07/myvim.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
