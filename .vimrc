@@ -25,3 +25,4 @@ nmap k gk
 set t_Co=256
 noremap ; :
 map <silent> <leader><C-x> :NERDTreeToggle<CR>
+
