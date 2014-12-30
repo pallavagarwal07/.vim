@@ -4,7 +4,6 @@ syntax enable
 colorscheme molokai
 set shiftwidth=4
 set tabstop=4
-
 if has("autocmd")
   filetype plugin indent on
 endif
