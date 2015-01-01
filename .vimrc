@@ -27,3 +27,4 @@ let g:EasyMotion_smartcase = 1
 nmap ,, <leader><leader>s
 set listchars=tab:..
 set list 
+nnoremap <F5> :buffers<CR>:buffer<Space>
