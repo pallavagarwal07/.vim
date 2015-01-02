@@ -80,7 +80,7 @@ setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
-setlocal list
+setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
@@ -122,12 +122,76 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 28) / 57)
+61
+normal! zo
+61
+normal! zc
+75
+normal! zo
+95
+normal! zo
+122
+normal! zo
+135
+normal! zo
+75
+normal! zc
+187
+normal! zc
+248
+normal! zc
+265
+normal! zo
+265
+normal! zc
+314
+normal! zo
+331
+normal! zo
+360
+normal! zo
+362
+normal! zo
+381
+normal! zo
+387
+normal! zo
+497
+normal! zo
+387
+normal! zc
+535
+normal! zo
+554
+normal! zo
+560
+normal! zc
+573
+normal! zo
+573
+normal! zc
+574
+normal! zo
+585
+normal! zo
+595
+normal! zo
+606
+normal! zo
+617
+normal! zo
+630
+normal! zo
+677
+normal! zo
+692
+normal! zo
+let s:l = 564 - ((45 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+564
+normal! 013|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

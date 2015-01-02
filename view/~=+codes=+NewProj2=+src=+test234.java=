@@ -20,6 +20,8 @@ inoremap <buffer> <silent> ] =AutoPairsInsert(']')
 inoremap <buffer> <silent> ` =AutoPairsInsert('`')
 inoremap <buffer> <silent> { =AutoPairsInsert('{')
 inoremap <buffer> <silent> } =AutoPairsInsert('}')
+inoreabbr <buffer> logger logger=eclim#java#logging#LoggingInit("logger")
+inoreabbr <buffer> log log=eclim#java#logging#LoggingInit("log")
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -32,15 +34,15 @@ setlocal buflisted
 setlocal buftype=
 setlocal cindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
+setlocal cinoptions=j1
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=//%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
-setlocal completefunc=eclim#c#complete#CodeComplete
+setlocal completefunc=eclim#java#complete#CodeComplete
 setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
@@ -50,10 +52,10 @@ setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=
+setlocal errorformat=%E%f:%l:\ %m,%-Z%p^,%-C%.%#,%-G%.%#
 setlocal noexpandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
+if &filetype != 'java'
+setlocal filetype=java
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -71,24 +73,24 @@ setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=2
 setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal include=^s*import
+setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0=extends,0=implements
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
-setlocal nolist
-setlocal makeprg=
+setlocal list
+setlocal makeprg=javac
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
+setlocal omnifunc=javacomplete#Complete
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -107,11 +109,11 @@ setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
-setlocal suffixesadd=
+setlocal suffixesadd=.java
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
+if &syntax != 'java'
+setlocal syntax=java
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -122,106 +124,14 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-74
+6
 normal! zo
-74
-normal! zc
-91
-normal! zo
-91
-normal! zc
-163
-normal! zc
-202
-normal! zc
-207
-normal! zc
-217
-normal! zc
-279
-normal! zc
-296
-normal! zo
-302
-normal! zo
-304
-normal! zo
-354
-normal! zo
-437
-normal! zo
-481
-normal! zo
-482
-normal! zo
-483
-normal! zo
-490
-normal! zo
-491
-normal! zo
-505
-normal! zo
-533
-normal! zo
-542
-normal! zo
-553
-normal! zo
-567
-normal! zo
-612
-normal! zo
-616
-normal! zo
-619
-normal! zo
-640
-normal! zo
-645
-normal! zo
-656
-normal! zo
-666
-normal! zo
-676
-normal! zo
-686
-normal! zo
-696
-normal! zo
-741
-normal! zo
-755
-normal! zo
-782
-normal! zc
-792
-normal! zc
-817
-normal! zc
-830
-normal! zo
-841
-normal! zo
-851
-normal! zo
-862
-normal! zo
-873
-normal! zo
-886
-normal! zo
-933
-normal! zo
-948
-normal! zo
-let s:l = 175 - ((135 * winheight(0) + 28) / 56)
+let s:l = 14 - ((10 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-175
-normal! 020|
+14
+normal! 012|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
