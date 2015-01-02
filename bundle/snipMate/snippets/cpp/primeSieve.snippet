@@ -1,0 +1,18 @@
+bool primeArr[10000000]={0};
+int primeList[664579];
+void primeInit()
+{
+	int i=2;
+	primeArr[0]=primeArr[1]=1;
+	for (i = 2; i < 3163; i++) {
+		for(int j = i*i; j < 10000000; j+=i)
+		{
+			primeArr[j] = 1;
+		}
+	}
+	i=0;
+	for (int j = 0; j < 10000000; j++) {
+		if(!primeArr[j])
+			primeList[i++]=j;
+	}
+}
