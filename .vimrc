@@ -10,7 +10,7 @@ set showmatch           " Show matching brackets.
 set ignorecase          " Do case insensitive matching
 set smartcase           " Do smart case matching
 set incsearch           " Incremental search
-set confirm             " Ask for confirmation for saving buffers when they are abandoned
+set hidden             " Ask for confirmation for saving buffers when they are abandoned
 set rnu
 set number
 call pathogen#infect() 
