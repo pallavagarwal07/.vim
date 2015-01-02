@@ -30,4 +30,5 @@ set list
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <F12> :w<CR>:!pdflatex<Space>%<Space>&&<Space>xdg-open<Space>%:r.pdf<CR><CR>
 set grepprg=grep\ -nH\ $*
+
 let g:tex_flavor='latex'
