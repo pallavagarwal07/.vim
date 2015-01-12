@@ -1,7 +1,6 @@
 syntax on
 set background=dark
 syntax enable 
-colorscheme molokai
 set shiftwidth=4
 set tabstop=4
 filetype plugin indent on
@@ -18,8 +17,6 @@ set foldmethod=syntax
 set foldlevel=999999990
 filetype plugin on
 set so=10
-nmap j gj
-nmap k gk
 set t_Co=256
 nnoremap ; :
 map <silent> <leader><C-x> :NERDTreeToggle<CR>
@@ -30,5 +27,11 @@ set list
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <F12> :w<CR>:!pdflatex<Space>%<Space>&&<Space>xdg-open<Space>%:r.pdf<CR><CR>
 set grepprg=grep\ -nH\ $*
-
+set showmatch
 let g:tex_flavor='latex'
+set mouse=a
+imap <C-R>+ <C-[>"+pi 
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+colorscheme jellybeans
+
