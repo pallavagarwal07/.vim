@@ -22,8 +22,6 @@ nnoremap ; :
 map <silent> <leader><C-x> :NERDTreeToggle<CR>
 let g:EasyMotion_smartcase = 1
 nmap ,, <leader><leader>s
-set listchars=tab:..
-set list 
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <F12> :w<CR>:!pdflatex<Space>%<Space>&&<Space>xdg-open<Space>%:r.pdf<CR><CR>
 set grepprg=grep\ -nH\ $*
@@ -34,4 +32,11 @@ imap <C-R>+ <C-[>"+pi
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 colorscheme jellybeans
-
+set nolist 
+command! -nargs=+ Calc :py print <args>
+py from math import *
+nmap <CR> :a<CR><CR>.<CR>
+au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"    
+au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
